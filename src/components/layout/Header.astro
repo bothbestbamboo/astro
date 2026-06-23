@@ -17,29 +17,32 @@ import { menuLinks } from "@/site.config";
 				alt="Logo"
 				class="me-3 h-10 w-10 sm:absolute sm:start-[-5rem] sm:top-[-0.4rem] sm:me-0 sm:h-16 sm:w-16"
 			/> -->
-			<svg class="h-10 w-10" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-  <circle cx="150" cy="150" r="135" stroke="#92C422" stroke-width="12" />
+			<a href="/" id="logo-link" class="inline-flex items-center gap-x-3 group" aria-current={Astro.url.pathname === "/" ? "page" : undefined}>
+  <svg class="h-14 w-14 shrink-0 sm:h-14 sm:w-14" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <circle cx="150" cy="150" r="135" stroke="#92C422" stroke-width="12" />
+    
+    <rect x="82" y="27" width="16" height="82" fill="#92C422" />
+    <rect x="82" y="115" width="16" height="82" fill="#92C422" />
+    <rect x="82" y="203" width="16" height="71" fill="#92C422" />
+    
+    <rect x="105" y="27" width="14" height="247" fill="#92C422" />
+    
+    <path d="M121 149H184V161H121V149Z" fill="#EAB317" />
+    <path d="M121 170H184V182H121V170Z" fill="#EAB317" />
+    <path d="M121 247H198V259H121V247Z" fill="#EAB317" />
+    <path d="M121 264H209V277H121V264Z" fill="#EAB317" />
+    
+    <path d="M184 149H195V247H184V149Z" fill="#92C422" />
+    <path d="M198 170H209V262H198V170Z" fill="#92C422" />
+    
+    <path d="M184 149L195 161V172L184 161V149Z" fill="#92C422" opacity="0.8" />
+    <path d="M184 170L195 182V193L184 182V170Z" fill="#92C422" opacity="0.8" />
+    <path d="M198 170L209 182V193L198 182V170Z" fill="#92C422" opacity="0.8" />
+    <path d="M198 247L209 259V272L198 259V247Z" fill="#EAB317" opacity="0.8" />
+    <path d="M209 170L217 182V277L209 264V170Z" fill="#92C422" opacity="0.6" />
+  </svg>
   
-  <rect x="82" y="27" width="16" height="82" fill="#92C422" />
-  <rect x="82" y="115" width="16" height="82" fill="#92C422" />
-  <rect x="82" y="203" width="16" height="71" fill="#92C422" />
-  
-  <rect x="105" y="27" width="14" height="247" fill="#92C422" />
-  
-  <path d="M121 149H184V161H121V149Z" fill="#EAB317" />
-  <path d="M121 170H184V182H121V170Z" fill="#EAB317" />
-  <path d="M121 247H198V259H121V247Z" fill="#EAB317" />
-  <path d="M121 264H209V277H121V264Z" fill="#EAB317" />
-  
-  <path d="M184 149H195V247H184V149Z" fill="#92C422" />
-  <path d="M198 170H209V262H198V170Z" fill="#92C422" />
-  
-  <path d="M184 149L195 161V172L184 161V149Z" fill="#92C422" opacity="0.8" />
-  <path d="M184 170L195 182V193L184 182V170Z" fill="#92C422" opacity="0.8" />
-  <path d="M198 170L209 182V193L198 182V170Z" fill="#92C422" opacity="0.8" />
-  <path d="M198 247L209 259V272L198 259V247Z" fill="#EAB317" opacity="0.8" />
-  <path d="M209 170L217 182V277L209 264V170Z" fill="#92C422" opacity="0.6" />
-</svg>
+  </a>
 			<!-- 修改：首页标题 -->
 			<span class="text-xl font-bold sm:text-2xl">Bothbest Bamboo Flooring</span>
 		</a>
