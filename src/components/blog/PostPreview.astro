@@ -1,25 +1,33 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "@/components/FormattedDate.astro";
-import type { HTMLTag, Polymorphic } from "astro/types";
+import FormattedDate from "../FormattedDate.astro";
 
-type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
+interface Props {
 	post: CollectionEntry<"post">;
 	withDesc?: boolean;
-};
+}
 
-const { as: Tag = "div", post, withDesc = false } = Astro.props;
+// 💡 关键修改 1：从 post.data 中提取出 description（描述）
+const { post, withDesc = true } = Astro.props;
+const { description } = post.data;
 ---
 
-<!-- 修改：主页字体 -->
-<FormattedDate
-	class="mt-1.5 min-w-[120px] font-semibold text-gray-600 dark:text-gray-400"
-	date={post.data.publishDate}
-/>
-<Tag>
-	{post.data.draft && <span class="text-red-500">(Draft) </span>}
-	<a class="cactus-link text-lg" data-astro-prefetch href={`/posts/${post.id}/`}>
+<FormattedDate date={post.data.publishDate} class="min-w-[120px] text-gray-500" />
+
+<div class="flex-1">
+	<!-- 文章标题链接 -->
+	<a 
+		href={`/posts/${post.slug}/`} 
+		class="cactus-link text-base font-medium" 
+		data-astro-prefetch
+	>
 		{post.data.title}
 	</a>
-</Tag>
-{withDesc && <q class="line-clamp-3 italic">{post.data.description}</q>}
+	
+	<!-- 💡 关键修改 2：在标题下方渲染简短描述文字 -->
+	{withDesc && description && (
+		<p class="mt-1 line-clamp-2 text-sm text-textColor/70 leading-relaxed">
+			{description}
+		</p>
+	)}
+</div>
